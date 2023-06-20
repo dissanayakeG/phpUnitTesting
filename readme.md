@@ -1,7 +1,9 @@
 crete an empty directory
+
 open with text editor or with IDE
 
 goto `https://packagist.org`
+
 search `phpunit` (https://packagist.org/packages/phpunit/phpunit)
 
 run `composer require --dev phpunit/phpunit`
