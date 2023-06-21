@@ -29,11 +29,10 @@ class ExampleTest extends TestCase
 }
 ```
 
-run `php vendor/bin/phpunit tests/ExampleTest.php`
-run `php vendor/bin/phpunit tests/ExampleTest.php --colors`
-run `php vendor/bin/phpunit tests/ExampleTest.php --colors --testdox`
-
-running all test cases in `tests` directory `php vendor/bin/phpunit tests/`
+- run `php vendor/bin/phpunit tests/ExampleTest.php`
+- run `php vendor/bin/phpunit tests/ExampleTest.php --colors`
+- run `php vendor/bin/phpunit tests/ExampleTest.php --colors --testdox`
+- running all test cases in `tests` directory `php vendor/bin/phpunit tests/`
 
 there are 3 part of a test case
 
