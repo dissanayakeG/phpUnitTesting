@@ -12,6 +12,7 @@ create a test file `tests\ExampleTest.php`
 
 NOTE: test file names should prefixed with 'Test' and test cases names should start with 'test'
 
+
 ```php
 <?php
 
@@ -29,3 +30,21 @@ class ExampleTest extends TestCase
 ```
 
 run `php vendor/bin/phpunit tests/ExampleTest.php`
+
+there are 3 part of a test case
+
+```php
+public function testNetPriceIsCalculatedCorrectly()
+{
+    //1.setup
+    require './src/Cart.php';
+    $cart = new Cart();
+    $cart->price = 10;
+
+    //2.do something
+    $netPrice = $cart->getNetPrice();
+
+    //3.assertion
+    $this->assertEquals(12, $netPrice);
+}
+```

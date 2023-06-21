@@ -10,4 +10,11 @@ class ExampleTest extends TestCase
         $string2 = 'Hello';
         $this->assertSame($string1, $string2);
     }
+
+    public function testProduct()
+    {
+        require './src/ExampleFunction.php';
+        $product = product(10, 2);
+        $this->assertEquals(20, $product);
+    }
 }
