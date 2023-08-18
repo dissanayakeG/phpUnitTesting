@@ -4,15 +4,22 @@ use PHPUnit\Framework\TestCase;
 
 class CartTest extends TestCase
 {
+    protected $cart;
+
+    protected function setUp(): void
+    {
+        require './src/Cart.php';
+        $this->cart = new Cart();
+    }
+
     public function testNetPriceIsCalculatedCorrectly()
     {
         //setup
-        require './src/Cart.php';
-        $cart = new Cart();
-        $cart->price = 10;
+        //setUp() method called automatically
 
+        $this->cart->price = 10;
         //do something
-        $netPrice = $cart->getNetPrice();
+        $netPrice = $this->cart->getNetPrice();
 
         //assertion
         $this->assertEquals(12, $netPrice);
