@@ -16,8 +16,8 @@ class CartTest extends TestCase
     {
         //setup
         //setUp() method called automatically
-
         $this->cart->price = 10;
+        
         //do something
         $netPrice = $this->cart->getNetPrice();
 
