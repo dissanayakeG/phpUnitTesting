@@ -37,17 +37,32 @@ class ExampleTest extends TestCase
 there are 3 part of a test case
 
 ```php
-public function testNetPriceIsCalculatedCorrectly()
+
+<?php
+
+use PHPUnit\Framework\TestCase;
+
+class CartTest extends TestCase
 {
-    //1.setup
-    require './src/Cart.php';
-    $cart = new Cart();
-    $cart->price = 10;
+    protected $cart;
 
-    //2.do something
-    $netPrice = $cart->getNetPrice();
+    protected function setUp(): void
+    {
+        require './src/Cart.php';
+        $this->cart = new Cart();
+    }
 
-    //3.assertion
-    $this->assertEquals(12, $netPrice);
+    public function testNetPriceIsCalculatedCorrectly()
+    {
+        //setup
+        //setUp() method called automatically
+
+        $this->cart->price = 10;
+        //do something
+        $netPrice = $this->cart->getNetPrice();
+
+        //assertion
+        $this->assertEquals(12, $netPrice);
+    }
 }
 ```
