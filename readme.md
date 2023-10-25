@@ -67,8 +67,24 @@ class CartTest extends TestCase
 }
 ```
 
-##Mockery
+###Mockery
 
-###installation
+####installation
 
 - composer require --dev mockery/mockery
+
+
+###Autoloading
+
+- Add below object in `composer.json`
+- Then run `composer dump-autoload`
+
+```json
+    "autoload": {
+        "psr-4": {
+            "TestNamespace\\": "src/"
+        }
+    }
+```
+
+- Now you can add namespace into your classes like `namespace TestNamespace\WithDependencies;`
