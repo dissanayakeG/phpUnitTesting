@@ -3,8 +3,10 @@
 use PHPUnit\Framework\TestCase;
 use TestNamespace\WithDependencies\UserRepository;
 use TestNamespace\WithDependencies\UserService;
+use Mockery as m;
 
 
+//In this example, SpyUserRepository is a subclass of UserRepository. It overrides the find method to record that it was called and also calls the real implementation. 
 class SpyUserRepository extends UserRepository
 {
     private $findCalled = false;
@@ -37,4 +39,19 @@ class SpyUserServiceTest extends TestCase
         $this->assertEquals('1', $result);
         $this->assertTrue($userRepository->wasFindCalled());
     }
+
+    //same test without subclass
+    // public function testGetUserById_WithSpy2()
+    // {
+    //     // Arrange
+    //     $userRepository = m::spy(UserRepository::class);
+    //     $userService = new UserService($userRepository);
+
+    //     // Act
+    //     $result = $userService->getUserById(1);
+
+    //     // Assert
+    //     $this->assertEquals(1, $result);
+    //     $userRepository->shouldHaveReceived('find')->withArgs([1])->once();
+    // }
 }
