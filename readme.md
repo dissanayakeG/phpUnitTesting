@@ -12,7 +12,6 @@ create a test file `tests\ExampleTest.php`
 
 NOTE: test file names should prefixed with 'Test' and test cases names should start with 'test'
 
-
 ```php
 <?php
 
@@ -29,10 +28,10 @@ class ExampleTest extends TestCase
 }
 ```
 
-- run `php vendor/bin/phpunit tests/ExampleTest.php`
-- run `php vendor/bin/phpunit tests/ExampleTest.php --colors`
-- run `php vendor/bin/phpunit tests/ExampleTest.php --colors --testdox`
-- running all test cases in `tests` directory `php vendor/bin/phpunit tests/`
+-   run `php vendor/bin/phpunit tests/ExampleTest.php`
+-   run `php vendor/bin/phpunit tests/ExampleTest.php --colors`
+-   run `php vendor/bin/phpunit tests/ExampleTest.php --colors --testdox`
+-   running all test cases in `tests` directory `php vendor/bin/phpunit tests/`
 
 there are 3 part of a test case
 
@@ -67,17 +66,10 @@ class CartTest extends TestCase
 }
 ```
 
-###Mockery
-
-####installation
-
-- composer require --dev mockery/mockery
-
-
 ###Autoloading
 
-- Add below object in `composer.json`
-- Then run `composer dump-autoload`
+-   Add below object in `composer.json`
+-   Then run `composer dump-autoload`
 
 ```json
     "autoload": {
@@ -87,4 +79,30 @@ class CartTest extends TestCase
     }
 ```
 
-- Now you can add namespace into your classes like `namespace TestNamespace\WithDependencies;`
+-   Now you can add namespace into your classes like `namespace TestNamespace\WithDependencies;`
+
+###Mockery
+
+####installation
+
+-   composer require --dev mockery/mockery
+
+####Stubs,Mocks and Spy
+
+####Stubs
+
+-   A Stub is used to provide canned responses to method calls. It doesn't record any interactions with the object.
+-   This is useful when you want to control the behavior of the dependency in order to isolate the code you're testing.
+-   Use when you want to provide a controlled response from a dependency to test the behavior of the unit you're testing.
+
+####Mocks
+
+-   A Mock is used to verify interactions with the object being tested. It records method calls and their parameters for later verification.
+-   In your test, you would set up expectations on this mock object, such as "I expect the find method to be called with the argument 1".
+-   Use when you want to verify that certain interactions with the dependency occur (e.g., method calls, arguments passed).
+
+####Spy
+
+-   A Spy is similar to a Mock, but it records interactions for later verification while also allowing the real implementation to be called.
+-   This allows you to verify interactions later, but also test the real behavior.
+-   Use when you want to verify interactions but also want to allow the real implementation to be executed.
