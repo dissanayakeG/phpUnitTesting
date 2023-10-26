@@ -29,6 +29,15 @@ class UserServiceTest extends TestCase
         $this->assertSame('1', $result);
     }
 
+    public function testGetUserById_NotFound()
+    {
+        $this->userRepository->shouldReceive('find')->withArgs([1])->once()->andReturn(null);
+
+        $userService = new UserService($this->userRepository);
+        $result = $userService->getUserById(1);
+        $this->assertSame(null, $result);
+    }
+
     public function testUpdateUser()
     {
         $user = m::mock(User::class); //we can mock non existing classes too, We can use some random string instead of User as well.
